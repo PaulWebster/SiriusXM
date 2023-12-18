@@ -25,10 +25,10 @@ class SiriusXM:
         print('{} <SiriusXM>: {}'.format(datetime.datetime.now().strftime('%d.%b %Y %H:%M:%S'), x))
 
     def is_logged_in(self):
-        return 'SXMAUTH' in self.session.cookies
+        return 'SXMDATA' in self.session.cookies
 
     def is_session_authenticated(self):
-        return 'AWSELB' in self.session.cookies and 'JSESSIONID' in self.session.cookies
+        return 'AWSALB' in self.session.cookies and 'JSESSIONID' in self.session.cookies
 
     def get(self, method, params, authenticate=True):
         if authenticate and not self.is_session_authenticated() and not self.authenticate():
